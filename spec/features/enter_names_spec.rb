@@ -1,12 +1,8 @@
-require 'spec_helper'
 
 feature 'Enter names' do
   scenario 'submitting names' do
-    visit('/')
-    fill_in :player_1_name, with: 'Ivan'
-    fill_in :player_2_name, with: 'Mateja'
-    click_button 'Submit'
-    expect(page).to have_content "Ivan vs Mateja"
+    sign_in_and_play
+    expect(page).to have_content "P1 vs P2"
   end
 end
 
