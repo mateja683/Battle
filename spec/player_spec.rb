@@ -1,18 +1,21 @@
 require 'player'
 
 describe Player do
-let(:player) { Player.new(:name) }
+let(:player1) { Player.new(:name) }
+let(:player2) { Player.new(:name) }
+
+
   it 'returns the player name' do
-    expect(player.name).to eq :name
+    expect(player1.name).to eq :name
   end
 
   it 'expects the player to have an hp of 100 at the start' do
-    expect(player.health).to eq 100
+    expect(player1.health).to eq Player::DEFAULT_HEALTH
   end
 
   it 'attack reduces HP by 10 points' do
-    player.attack
-    expect(player.health).to eq 90
+
+    expect{ player1.attack(player2) }.to change {player2.health}.by(-10)
   end
 
 end
