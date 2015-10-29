@@ -13,9 +13,4 @@ let(:player2) { Player.new(:name) }
     expect(player1.health).to eq Player::DEFAULT_HEALTH
   end
 
-  it 'attack reduces HP by 10 points' do
-
-    expect{ player1.attack(player2) }.to change {player2.health}.by(-10)
-  end
-
 end
